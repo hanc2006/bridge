@@ -1,0 +1,97 @@
+export const ErrorCodes = {
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  PAYMENT_REQUIRED: 402,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  METHOD_NOT_ALLOWED: 405,
+  NOT_ACCEPTABLE: 406,
+  PROXY_AUTHENTICATION_REQUIRED: 407,
+  REQUEST_TIMEOUT: 408,
+  CONFLICT: 409,
+  GONE: 410,
+  LENGTH_REQUIRED: 411,
+  PRECONDITION_FAILED: 412,
+  PAYLOAD_TOO_LARGE: 413,
+  URI_TOO_LONG: 414,
+  UNSUPORTED_MEDIA_TYPE: 415,
+  RANGE_NOT_SATISFIABLE: 416,
+  EXPECTATION_FAILED: 417,
+  I_AM_A_TEAPOT: 418,
+  MISDIRECTED_REQUEST: 419,
+  UNPROCESSABLE_ENTITY: 422,
+  LOCKED: 423,
+  FAILED_DEPENDENCY: 424,
+  TOO_EARLY: 425,
+  UPGRADE_REQUIRED: 426,
+  PRECONDITION_REQUIRED: 428,
+  TOO_MANY_REQUEST: 429,
+  REQUEST_HEADER_FIELDS_TOO_LARGE: 431,
+  UNAVAILABLE_FOR_LEGAL_REASONS: 451,
+  INTERNAL_SERVER_ERROR: 500,
+  NOT_IMPLEMENTED: 501,
+  BAD_GATEWAY: 502,
+  SERVICE_UNAVAILABLE: 503,
+  GATEWAY_TIMEOUT: 504,
+  HTTP_VERSION_NOT_SUPPORTED: 505,
+  VARIANT_ALSO_NEGOCIATES: 506,
+  INSUFFICIENT_STORAGE: 507,
+  LOOP_DETECTED: 508,
+  NOT_EXTENTED: 510,
+  NETWORK_AUTHENTICATION_REQUIRED: 511,
+} as const;
+
+export const SuccessCodes = {
+  OK: 200,
+  CREATED: 201,
+  ACCEPTED: 202,
+  NON_AUTHORITATIVE_INFORMATION: 203,
+  NO_CONTENT: 204,
+  RESET_CONTENT: 205,
+  PARTIAL_CONTENT: 206,
+  MULTI_STATUS: 207,
+  ALREADY_REPORTED: 208,
+  IM_USED: 226,
+} as const;
+
+export const HttpMethods = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  DELETE: 'DELETE',
+} as const;
+
+export const Exceptions = [
+  'ERR_FILE_TYPE_NOT_ALLOWED',
+  'ERR_SCHEMA_NOT_FOUND',
+  'ERR_TEMPLATE_ID_NOT_FOUND',
+  'ERR_REF_ID_NOT_FOUND',
+  'ERR_RECORD_NOT_FOUND',
+  'ERR_CONTRACT_NOT_FOUND',
+  'ERR_FILE_ALREADY_EXISTS',
+  'ERR_CHECKOUT_SERVICE_TIMEOUT',
+  'ERR_CHECKOUT_SERVICE_UNAVAILABLE',
+  'ERR_CHECKOUT_SERVICE_READ_TIMEOUT',
+  'ERR_CHECKOUT_SESSION_ID_NOT_FOUND',
+  'ERR_INVALID_ORIGIN',
+  'ERR_WHILE_UPDATE_CHECKOUT_SERVICE',
+  'ERR_CUSTOMER_DETAILS_NOT_CONFIRMED',
+  'ERR_FROM_API',
+] as const;
+
+export const contentTypes = [
+  'application/json',
+  'multipart/form-data',
+  'application/x-www-form-urlencoded',
+  'text/plain',
+  'application/octet-stream',
+] as const;
+
+export type Exception = keyof typeof Exceptions;
+export type ContentType = (typeof contentTypes)[number];
+export type ErrorCode = (typeof ErrorCodes)[keyof typeof ErrorCodes];
+export type SuccessCode = (typeof SuccessCodes)[keyof typeof SuccessCodes];
+export type StatusCode = SuccessCode | ErrorCode;
+
+// export type HttpMethod;
